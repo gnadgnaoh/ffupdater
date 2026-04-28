@@ -40,6 +40,7 @@ class RootInstaller : AppInstaller {
     }
 
     @Throws(IllegalArgumentException::class)
+    @Throws(IllegalArgumentException::class)
     private fun fileIsSafeOrThrow(context: Context, file: File, appImpl: AppBase) {
         require(!hasDangerousCharacter(file.canonicalPath)) { "File path has dangerous characters: ${file.canonicalPath}" }
         require(!hasDangerousCharacter(file.name)) { "File name has dangerous characters: ${file.name}" }
@@ -48,10 +49,10 @@ class RootInstaller : AppInstaller {
         require(file.parentFile == downloadFolder) { "Wrong folder: ${file.parentFile}" }
 
         val cleanFileName = file.name.trim()
-
+        
         require(cleanFileName.endsWith(".apk", ignoreCase = true)) { "Invalid file suffix: $cleanFileName" }
 
-        val safePattern = """^[a-zA-Z0-9_.\-]+$""".toRegex()
+        val safePattern = """^[a-zA-Z0-9_.\-=]+$""".toRegex()
         require(file.nameWithoutExtension.trim().matches(safePattern)) { "Invalid chars in file name: $cleanFileName" }
     }
 
