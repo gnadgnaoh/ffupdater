@@ -31,7 +31,7 @@ jobs:
         run: ./gradlew assembleRelease
         
       - name: Locate APK file
-        run: find app/build/outputs/apk -type f -name "*.apk"
+        run: find . -type f -name "*.apk"
       
       - name: Sign Release APK
         uses: r0adkll/sign-android-release@v1
