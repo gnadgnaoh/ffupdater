@@ -40,7 +40,6 @@ class RootInstaller : AppInstaller {
     }
 
     @Throws(IllegalArgumentException::class)
-    @Throws(IllegalArgumentException::class)
     private fun fileIsSafeOrThrow(context: Context, file: File, appImpl: AppBase) {
         require(!hasDangerousCharacter(file.canonicalPath)) { "File path has dangerous characters: ${file.canonicalPath}" }
         require(!hasDangerousCharacter(file.name)) { "File name has dangerous characters: ${file.name}" }
