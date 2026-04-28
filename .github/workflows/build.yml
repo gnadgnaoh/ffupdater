@@ -29,15 +29,12 @@ jobs:
 
       - name: Build Release APK
         run: ./gradlew assembleRelease
-        
-      - name: Locate APK file
-        run: find . -type f -name "*.apk"
-      
+
       - name: Sign Release APK
         uses: r0adkll/sign-android-release@v1
         id: sign_app
         with:
-          releaseDirectory: app/build/outputs/apk/release
+          releaseDirectory: ffupdater/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.KEYSTORE_BASE64 }}
           alias: ${{ secrets.KEYSTORE_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
