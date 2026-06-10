@@ -2,7 +2,7 @@ name: Build FFUpdater Patched Release
 
 on:
   push:
-    branches: [ "test" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
